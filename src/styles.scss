@@ -1,1 +1,133 @@
-/* You can add global styles to this file, and also import other style files */
+$greenBG:rgb(203, 233, 51);
+$blueBG: rgb(99, 99, 125); 
+
+body{
+    background-color: #efeded;
+    font-family: Arial, Helvetica, sans-serif;   
+    background-image: repeating-radial-gradient(circle,  
+    #edf1f2, #dedede 50%, #e9f2f3 100%
+    );
+    background-size: 10px 10px;
+    position: static;
+}
+
+.main-conteiner{
+    width: 105em;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,-50%);
+   
+}
+
+.blue-button{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    border: 1px solid rgb(79, 79, 135);
+    background-color:  $blueBG; 
+    padding: 10px; 
+    box-shadow: inset 1px -1px 3px rgb(65, 65, 77); 
+}
+
+.blue-button:active{
+    background-color: rgb(185, 185, 205); 
+    border: 1px solid rgb(182, 182, 209);
+    box-shadow: none;       
+}
+
+.blue-button:disabled{
+    background-color: rgb(185, 185, 205); 
+    border: 1px solid rgb(182, 182, 209); 
+    box-shadow: none;  
+}
+
+.blueButtonTurnOn{
+    background-color: rgb(185, 185, 205); 
+    border: 1px solid rgb(129, 129, 162); 
+    color: rgb(77, 77, 97);
+    box-shadow: inset 1px -3px -3px 1px rgb(217, 217, 235);
+}
+
+.green-button{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(77, 77, 97);
+    border-radius: 8px;
+    border: 1px solid rgb(169, 203, 2);
+    background-color:  $greenBG;
+    padding: 10px;
+    box-shadow: inset 1px 3px 3px 1px rgb(241, 245, 189);
+}
+
+.green-button:active{
+    color: rgb(99, 99, 125);   
+    border: 1px solid rgb(197, 212, 124);
+    background-color:  rgb(227, 233, 198); 
+    box-shadow: none;    
+}
+
+.green-button:disabled{
+    color: rgb(255, 255, 255);   
+    border: 1px solid rgb(197, 212, 124);
+    background-color:  rgb(227, 233, 198); 
+    box-shadow: none;    
+}
+
+.input{
+    font-size: 25px;    
+    border: 2px solid rgb(79, 79, 135);
+    border-radius: 8px;
+    padding: 20px;    
+}
+
+.input:focus{
+    outline:4px solid $greenBG;
+    border: none !important;
+} 
+
+
+button, select, fa-icon{
+    cursor: pointer;
+}
+
+table {
+	width: 100%;
+	border: 2px solid #dddddd;
+	border-collapse: collapse; 
+    font-size: 25px;   
+    table-layout:fixed;
+    word-wrap: break-word; 
+    thead{       
+        tr{
+            background-color: rgb(249, 249, 249);
+            font-weight: bold;
+            border: 4px solid #dddddd;
+            cursor: pointer;
+        }
+    }
+    tbody{
+        border: 4px solid #dddddd;
+    }
+
+    tr{   
+        background: #ffffff;
+        border: 1px solid #dddddd;       
+    }
+
+    td {        
+        border: 1px solid #dddddd;
+        padding: 18px;   
+        padding-left: 50px;   
+    }
+}
+
+.pagin{
+    height: 80px;
+    background-color: rgb(249, 249, 249);
+    border: 4px solid #dddddd;
+    text-align: end;  
+    font-size: 20px; 
+    padding-right: 20px;   
+}
+

@@ -1,0 +1,19 @@
+<div *ngFor="let attach of attachments">
+    <div #file class="grid">
+        <div class="box-1">          
+           <img [src]="attach.path" alt="Image" width="300" *ngIf="checkType(attach) === 'jpg'">
+           <fa-icon [icon]="fileW" *ngIf="checkType(attach) === 'doc'">
+            </fa-icon>
+            <fa-icon [icon]="filePdf" *ngIf="checkType(attach) === 'pdf'"></fa-icon>           
+        </div>
+    
+        <div class="box-2">
+            <div class="name">Name: </div>
+            <div>{{attach.name}}</div>           
+        </div>  
+        <a *ngIf="url !== 'edit'" [href]="attach.path" download=""><i><fa-icon [icon]="load"></fa-icon></i></a>
+        <div class="box-3" *ngIf="url === 'edit'">
+            <fa-icon [icon]="x" (click)="[deleteAttach(attach.id), file.remove()]"></fa-icon>
+        </div>
+    </div>     
+</div>

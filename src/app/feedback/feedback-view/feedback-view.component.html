@@ -1,0 +1,52 @@
+<div class="main-conteiner">
+
+    <div class="grid">
+
+        <div class="box-1">
+            <div>
+                <button class="green-button" [routerLink]="path">Back</button>
+            </div>
+            <div class="name">Ticket({{ticketId}}) - {{name}}</div>            
+        </div>
+        <form  [formGroup]="feedbackForm" (ngSubmit)="addFeedback()">
+
+            <div class="box-2">
+
+                <div *ngIf="url === 'leave-feedback'">Please, raet your satisfaction with the solution</div>
+                <div *ngIf="url === 'view-feedback'">Feedback:</div>
+    
+                <div class="box-2-2">
+                    <div class="star" >
+                        <div *ngFor="let star of stars">
+                            <div (click)="getRate(star)" >&#9734;</div>                    
+                        </div>
+                    </div> 
+                    <div class="star" >
+                        <div *ngFor="let r of rates">
+                            <div class="rate" (click)="getRate(r)">&#9733;</div>                    
+                        </div>
+                    </div>   
+                </div>                                      
+            </div>
+
+            <div class="box-3">
+                <textarea class="input" [readOnly]="readable" formControlName="text"
+                [ngClass]="{invalid: text?.errors }"></textarea>  
+                <div>
+                    <fa-icon [icon]="exclam" *ngIf="text?.errors"
+                    (click)="clickon()">
+                    </fa-icon>
+                </div>   
+            </div>
+    
+            <div class="box-4" *ngIf="url === 'leave-feedback'">
+                <div>
+                    <button class="green-button" [disabled]="text?.errors">Submit</button>
+                </div>
+            </div>
+        </form>      
+    </div>    
+    <div>
+        <ng-content></ng-content>
+    </div>
+</div>

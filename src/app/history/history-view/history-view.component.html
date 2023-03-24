@@ -1,0 +1,42 @@
+<div class="main-conteiner">
+    <div class="grid">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>DATE</td>
+                    <td>USER</td>
+                    <td>ACTION</td>
+                    <td>DESCRIPTION</td>
+                </tr>
+            </thead>
+             <tbody>
+                <tr *ngFor="let history of histories | paginate: {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: total}">
+                    <td>{{history.date}}</td>
+                    <td>{{history.user}}</td>
+                    <td>{{history.action}}</td>
+                    <td>{{history.description}}</td>                
+                </tr>
+                <tr *ngFor="let row of getEmptyRows()">
+                    <td><br></td>
+                    <td><br></td>
+                    <td><br></td>
+                    <td><br></td>                
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="pagin">
+            <pagination-controls class="my-pagination"
+                    previousLabel=""
+                    nextLabel=""
+                    (pageChange)="onChangePage($event)">
+        </pagination-controls>
+    </div>
+    
+    </div>
+    
+</div>

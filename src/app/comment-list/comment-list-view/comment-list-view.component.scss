@@ -1,0 +1,28 @@
+.grid{
+  position: absolute;
+  top: 990px;
+  width: 100%;
+  .addComment{
+    margin-top: 50px;
+    display: flex;
+    align-items: baseline;
+    div{
+      width: 800px;
+    }
+
+    button{
+      width: 300px;
+      margin-left: 10px;
+      align-self: flex-end;
+    }
+  }
+}
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: rgb(99, 99, 125); 
+  border-radius: 4px;    
+}
+
+.my-pagination::ng-deep.ngx-pagination :hover {            
+  background: #e9e9e9;
+  border-radius: 4px;
+}

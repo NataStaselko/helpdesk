@@ -1,0 +1,86 @@
+<div class="main-conteiner">
+
+    <div class="box-1" *ngIf="role !== 'ENGINEER'">
+        <button class="green-button" routerLink="/ticket/create">Create New Ticket</button>
+    </div>
+
+<div class="box-2">
+
+    <button class="blue-button" (click)="clickBlueBatton('')" 
+    [ngClass]="{blueButtonTurnOn: flag === ''}">All Tickets</button>
+
+    <button class="blue-button" (click)="clickBlueBatton('own')" 
+    [ngClass]="{blueButtonTurnOn: flag === 'own'}">My Tickets</button>
+</div>
+
+<div class="grid">
+    <table class="table">
+        <thead>
+            <tr>
+                <td (click)="addSort('id')" [ngClass]="{marker: sortBy === 'id'}">ID
+                    <span>
+                        <fa-icon [icon]="chageIcon('id')"></fa-icon>
+                    </span>
+                </td>
+                <td (click)="addSort('name')" [ngClass]="{marker: sortBy === 'name'}">NAME
+                    <span>
+                        <fa-icon [icon]="chageIcon('name')"></fa-icon>
+                    </span>
+                </td>
+                <td (click)="addSort('desired')" [ngClass]="{marker: sortBy === 'desired'}">DESIRED DATE
+                    <span>
+                        <fa-icon [icon]="chageIcon('desired')"></fa-icon>
+                    </span>
+                </td>
+                <td (click)="addSort('urgency')" [ngClass]="{marker: sortBy === 'urgency'}">URGENCY
+                    <span>
+                        <fa-icon [icon]="chageIcon('urgency')"></fa-icon>
+                    </span>
+                </td>
+                <td (click)="addSort('state')" [ngClass]="{marker: sortBy === 'state'}">STATUS
+                    <span>
+                        <fa-icon [icon]="chageIcon('state')"></fa-icon>
+                    </span>
+                </td>
+                <td>ACTION</td>
+            </tr>
+        </thead>
+         <tbody>
+            <tr *ngFor="let ticket of tickets | paginate: {
+                itemsPerPage: pageSize,
+                currentPage: page,
+                totalItems: total}">
+                <td>{{ticket.id}}</td>
+                <td><a [routerLink]="['/ticket', ticket.id, 'history']" (click)="addActionByFeedback(ticket)">{{ticket.name}}</a></td>
+                <td>{{ticket.desired_date}}</td>
+                <td>{{ticket.urgency | lowercase | capitalLetter }}</td>
+                <td>{{ticket.state | lowercase | capitalLetter  }}</td>
+                <td>
+                    <form>              
+                        <select #act *ngIf="ticket.action" (change)="submit(act.value)" 
+                         onfocus="this.selectedIndex = -1;" onblur="this.selectedIndex = 0;">
+
+                            <option  *ngFor="let a of ticket.action" [value]="[a, ticket.id, ticket.name]">{{a}}</option>
+                            
+                        </select>                               
+                    </form> 
+                </td>
+            </tr>
+            <tr *ngFor="let row of getEmptyRows()">
+                <td><br></td>
+                <td><br></td>
+                <td><br></td>
+                <td><br></td>
+                <td><br></td>
+                <td><br></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="pagin">
+        <pagination-controls class="my-pagination"
+                previousLabel=""
+                nextLabel=""
+                (pageChange)="onChangePage($event)">
+    </pagination-controls>
+</div>
+</div>

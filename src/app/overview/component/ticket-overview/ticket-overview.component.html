@@ -1,0 +1,52 @@
+<div class="main-conteiner">
+    <div class="grid">
+
+       <div class="box-1">
+        <div class="button">
+            <button class="green-button" routerLink="/ticketList">Ticket List</button>
+            <button class="green-button" routerLink="history" *ngIf="url === 'details'">Back</button>
+        </div>
+        <div class="ticket">Ticket({{ticket.id}}) - {{ticket.name}}</div>
+        <div class="button">
+            <button class="green-button" routerLink="details">More Details</button>
+            <button class="green-button" *ngIf="ticket.status === 'DRAFT'"
+            [routerLink]="['/ticket', ticket.id, 'edit']">Edit</button>
+
+            <div *ngIf="ticket.status === 'DONE' && buttonFeedback !== ''">
+                <button class="green-button" 
+               [routerLink]="buttonFeedback.startsWith('Leave')?'leave-feedback':'view-feedback'">{{buttonFeedback}}</button>                 
+            </div>      
+        </div>        
+       </div>
+
+       <div class="box-2">
+        <div class="name">Created on:</div>
+            <div>{{ticket.createdOn}}</div>
+            <div class="name">Status:</div>
+            <div>{{ticket.status | lowercase | capitalLetter}}</div>
+            <div class="name">Category:</div>
+            <div>{{ticket.category.name}}</div>    
+            <div class="name">Urgency:</div>
+            <div>{{ticket.urgency | lowercase | capitalLetter}}</div>
+            <div class="name">Desired resolution date:</div>
+            <div>{{ticket.desired_date}}</div>
+            <div class="name">Owner:</div>
+            <div>{{ticket.owner}}</div>
+            <div class="name">Approver:</div>
+            <div>{{ticket.approver}}</div>
+            <div class="name">Assignee:</div> 
+            <div>{{ticket.assignee}}</div>            
+       </div>
+
+       <div class="box-3" *ngIf="url !== 'details'">      
+        <div>
+            <button class="blue-button" routerLink="history" 
+            [ngClass]="{blueButtonTurnOn: url === 'history'}">History</button>
+            <button class="blue-button" routerLink="comments"
+            [ngClass]="{blueButtonTurnOn: url === 'comments'}">Comments</button>
+        </div>    
+       </div>
+
+   </div>  
+</div>
+

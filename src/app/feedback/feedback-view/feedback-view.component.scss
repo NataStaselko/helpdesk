@@ -1,0 +1,86 @@
+.grid{
+    position: absolute;
+    top: 100px;
+    padding: 30px;
+    width: 100%;
+    font-size: 30px;
+    color: rgb(99, 99, 125);
+    font-weight: bold; 
+    button{
+        width: 300px;
+    }    
+
+    .box-1{
+        display: grid;
+        grid-template-columns: 300px 1018px 300px;
+        justify-content: center;
+        justify-self: center;
+        justify-items: center;
+
+        .name{  
+            padding: 10px; 
+            font-size: 40px;            
+            word-wrap:break-word; 
+            width: 1000px;
+            text-align: center;
+        }
+    }
+    .box-2{
+        display: grid;
+        padding: 30px 300px 30px 300px;
+        grid-template-rows: 100px 220px;
+        text-align: center;
+        
+        div{
+            padding: 10px;
+        }
+
+        .box-2-2{ 
+            position: relative;
+            text-align: center;        
+
+            .star{               
+                display: flex;
+                position: absolute;
+                cursor: pointer;
+                flex-direction: row;
+                font-size: 100px;
+                font-weight: 100;
+            }
+
+            .rate{
+                color: rgb(255, 174, 0);
+            }
+        }               
+        
+    }
+    .box-3{
+        display: grid;
+        column-gap: 20px;
+        grid-template-columns: 1000px 50px;
+        justify-content: center;
+        align-items: center;
+
+        textarea{
+            font-size: 30px;
+            margin-left: 35px;
+            height: 250px;
+            width: 1000px;
+        }
+
+        fa-icon{
+            margin-left: 35px;
+            color: #e78c8c;  
+        }
+    }
+
+
+    .box-4{
+        padding-top: 80px;
+        text-align: end;
+    }
+}
+.invalid{
+    outline:4px solid #e78c8c;   
+    border: none !important; 
+}

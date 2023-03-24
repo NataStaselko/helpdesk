@@ -1,0 +1,123 @@
+<div class="main-conteiner">
+
+    <div class="b">
+        
+    </div> 
+    
+    <div class="conteiner">
+
+        <div class="box-1">
+            <button class="green-button" routerLink="/ticketList">Ticket List</button>
+            <div *ngIf="url === 'create'">Create new Ticket</div>
+            <div *ngIf="url !== 'create'">Edit Ticket ({{ticket?.id}})</div>
+        </div>
+        <form id="form"  [formGroup]="ticketForm" (ngSubmit)="saveTicket()">
+        <div class="box-2">
+            <div>Category <sup>&#9913;</sup></div>
+            <div> Name <sup>&#9913;</sup></div>
+            <div>Description</div>
+            <div>Urgency <sup>&#9913;</sup></div>
+            <div>Desired reolution date</div>
+            <div>Add attachments</div>
+            <div>Comment</div>            
+        </div>
+
+        <div class="box-3">
+
+            <div>
+                <select  formControlName="category"
+                [ngClass]="{invalid: (category?.dirty || category?.touched) && category?.errors }">
+                    <option disabled selected value></option>
+                    <option [ngValue]="category.id" *ngFor="let category of categories">{{category.name}}</option>                    
+                </select>
+                <span>
+                    <fa-icon [icon]="exclam" 
+                    *ngIf="(category?.dirty || category?.touched) && category?.errors"
+                    (click)="clickon()">
+                </fa-icon>
+                </span>
+            </div>
+
+            <div >
+                <input formControlName="name" class="input" type="text" 
+                [ngClass]="{invalid: (name?.dirty || name?.touched) && name?.errors }"/>
+                <span>
+                    <fa-icon [icon]="exclam"
+                     *ngIf="(name?.dirty || name?.touched) && name?.errors"
+                     (click)="clickon()">
+                    </fa-icon>
+                </span>
+            </div>
+
+            <div>
+                <textarea formControlName="description" class="input" type="text" 
+                [ngClass]="{invalid: description?.errors }"></textarea>
+                <span>
+                    <fa-icon [icon]="exclam" *ngIf="description?.errors"
+                    (click)="clickon()">
+                </fa-icon>
+                </span>
+            </div>
+            
+            <div>
+                <select formControlName="urgency" 
+                [ngClass]="{invalid: (urgency?.dirty || urgency?.touched) && urgency?.errors }">
+                    <option disabled selected value></option>
+                    <option  *ngFor="let urgency of urgencies">{{urgency | lowercase | capitalLetter}}</option>
+                </select>
+                <span>
+                    <fa-icon [icon]="exclam" 
+                    *ngIf="(urgency?.dirty || urgency?.touched) && urgency?.errors"
+                    (click)="clickon()">
+                </fa-icon>
+                </span>
+            </div>
+
+            <div>
+                <p-calendar #date formControlName="date" dateFormat="dd/mm/yy" 
+                [readonlyInput]="true" 
+                (onSelect)="getDateForm(date.value)">
+                </p-calendar>
+                <span>
+                    <fa-icon [icon]="exclam" *ngIf="ticketForm.controls['date'].invalid"
+                    (click)="clickon()">
+
+                    </fa-icon>
+                </span>                
+            </div>  
+
+            <div *ngIf="url === 'edit'">
+                <ng-content select=".attach"></ng-content>
+            </div>                    
+            
+            <div>
+                <ng-content select=".file"></ng-content>
+            </div> 
+
+            <div>
+                <ng-content></ng-content>
+            </div>
+
+        </div>
+    
+        </form>
+
+        <div class="box-4">
+            <button class="blue-button" [disabled]="ticketForm.invalid"
+             form="form" (click)="stateTicket ='DRAFT'">Save as Draft</button>
+
+            <button class="green-button" [disabled]="ticketForm.invalid"
+             form="form" (click)="stateTicket = 'NEW'">Submit</button>
+        </div>    
+    </div> 
+    
+    <ng-content select=".message"></ng-content>    
+    
+</div>
+
+
+        
+        
+        
+
+        

@@ -1,0 +1,8 @@
+    <form class="comment" [formGroup]="commentForm">
+        <textarea class="input" formControlName="text" (change)="checkValid()"
+        [ngClass]="{invalid: comm?.invalid}">
+        </textarea>
+            <fa-icon [icon]="exclam" *ngIf="commentForm.controls['text'].invalid"
+            (click)="clickon()">    
+            </fa-icon>
+    </form>    

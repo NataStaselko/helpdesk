@@ -1,0 +1,31 @@
+<app-form-view
+[categories]="categories"
+[urgencies]="urgencies"
+[url]="url"
+[ticket]="ticket"
+(submitTicket)="submitTicket($event)"
+(clickMess)="clickMess($event)">
+
+<app-comment class="comment"
+[url]="url"
+(clickM)="clickMess($event)">
+
+</app-comment>
+
+<app-save-file class="file"
+(clickMess)="clickMess($event)">
+
+</app-save-file>
+
+<app-message class="message" 
+[messages]="messages">
+</app-message>
+
+<app-file class="attach" 
+*ngIf="url === 'edit'"
+[id]="ticket.id"
+[url]="url">
+</app-file>
+
+</app-form-view>
+   

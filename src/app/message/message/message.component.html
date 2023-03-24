@@ -1,0 +1,10 @@
+<div class="message" *ngIf="clickon"
+[ngClass]="{messageByCommentList: position}"> 
+    <fa-icon [icon]="x" (click)="clickMessage()"></fa-icon>
+    <div>Suggestions</div>
+    <ul>
+        <li *ngFor="let message of messages">
+            {{message}}
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,84 @@
+.file-input{
+    display: none;
+}
+
+.blue-button{
+    width: 300px;
+    border-radius: 8px;
+}
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    .exclam{
+        font-size: 40px;
+        color: #e78c8c;
+        margin-left: 20px;
+        align-self: center;
+    }
+
+    .grid{
+        margin-top: 20px;
+        width: 700px;
+        display: grid; 
+        grid-template-columns: 320px 320px 40px; 
+        column-gap: 10px;
+        border: 2px solid rgb(79, 79, 135);
+        border-radius: 8px;
+        background-color: white;
+        font-size: 20px;
+    
+        .box-1{
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 3;    
+            justify-self: center; 
+            align-self: center;
+            padding: 10px;
+                img{
+                width: 300px;
+                }
+                fa-icon{
+                    font-size: 100px;
+                    color: rgb(99, 99, 125);
+                }
+        }
+        .box-2{
+            display: grid; 
+            grid-template-rows: 30px auto 30px auto;
+            grid-template-columns: 320px;
+            row-gap: 10px;
+            padding: 10px;
+                div{
+                display: inline;
+                font-size: 25px;
+                word-wrap: break-word;
+                padding-right: 10px;
+                }
+                .name{
+                    font-size: 30px;
+                    font-weight: bold;
+                    color: rgb(99, 99, 125);
+                    padding-top: 10px;
+                }                
+        }
+        .box-3{
+            grid-column-start: 3;
+            grid-column-end: 4;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            padding-right: 10px;
+            padding-top: 10px;
+            font-size: 30px;
+            color: rgb(99, 99, 125); 
+        }    
+       
+    }
+}
+
+
+
+.invalid{
+    outline:4px solid #e78c8c;   
+    border: none !important; 
+}

@@ -1,0 +1,14 @@
+<app-feedback-view
+[name]="name"
+[ticketId]="ticketId"
+[feedback]="feedback"
+[path]="path"
+[url]="url"
+(clickMess)="clickMess($event)"
+(newFeedback)="submit($event)">
+
+<app-message  
+[messages]="messages">
+</app-message>
+
+</app-feedback-view>

@@ -1,0 +1,9 @@
+<div class="main-conteiner">
+    <div class="box" (click)="addValidator()">        
+        <fa-icon [icon]="glass"></fa-icon>
+        <form [formGroup]="filterForm">
+            <input #filt formControlName="filter" class="input" type="text" (input)="addFilter()">
+        </form>       
+    </div> 
+</div>
+

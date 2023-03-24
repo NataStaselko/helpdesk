@@ -1,0 +1,42 @@
+<div class="main-conteiner">
+    <div class="grid">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>DATE</td>
+                    <td>USER</td>
+                    <td>COMMENT</td>
+                </tr>
+            </thead>
+             <tbody>
+                <tr *ngFor="let comment of comments | paginate: {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: total}">
+                    <td>{{comment.date}}</td>
+                    <td>{{comment.user}}</td>
+                    <td>{{comment.comment}}</td>            
+                </tr>
+                <tr *ngFor="let row of getEmptyRows()">
+                    <td><br></td>
+                    <td><br></td>
+                    <td><br></td>                            
+                </tr>
+            </tbody>
+        </table>
+    
+        <div class="pagin">
+            <pagination-controls class="my-pagination"
+                    previousLabel=""
+                    nextLabel=""
+                    (pageChange)="onChangePage($event)">
+        </pagination-controls>
+    </div>
+    <div class="addComment" *ngIf="status !== 'DRAFT'">
+        <div>
+            <ng-content></ng-content>
+        </div>        
+        <button class="blue-button" (click)="click()">Add comment</button>
+    </div>    
+    </div> 
+</div>

@@ -1,0 +1,28 @@
+.box{
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid rgb(255, 0, 43);
+    border-radius: 5px;
+    width: 50%;
+    height: min-content;
+    font-size: 30px;
+    padding-left: 40px;
+    padding-bottom: 50px;
+    background-color: rgb(246, 239, 244);
+    p{        
+        font-size: 50px;
+        color: rgb(255, 0, 43);
+        text-decoration: underline 1px solid;
+        padding-left: 20px;        
+    }
+    button{
+        position: relative;
+        top: 10px;
+        left: 550px;
+        width: 200px;
+        padding: 10px;
+        align-content: end;
+    }
+}

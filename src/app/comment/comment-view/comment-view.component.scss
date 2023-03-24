@@ -1,0 +1,28 @@
+form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    textarea{    
+    width: 700px;
+    height: 150px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;  
+    }
+    
+    fa-icon{
+    font-size: 40px;
+    color: #e78c8c; 
+    padding-left: 20px;
+    }
+}
+
+
+.invalid{
+    outline:4px solid #e78c8c;   
+    border: none !important; 
+}
+
+.mess{
+    position: absolute;
+    top: 0px;
+}

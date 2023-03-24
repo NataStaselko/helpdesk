@@ -1,0 +1,33 @@
+<form #form>
+    <input #addFile type="file" accept=".pdf, .png, .doc, .docx, .jpg, .jpeg" 
+    (change)="[showPreview($event), form.reset()]"  class="file-input"  multiple/>
+</form>        
+    <input class="blue-button" type="button" (click)="addFile.click()" value="Browse"/>
+    <div class="conteiner" *ngFor="let attach of attachments">
+        <div class="grid"  [ngClass]="{invalid: checkSizeFile(attach)}">
+            <div class="box-1">
+               <img [src]="attach.url">
+               <div *ngIf="!attach.url">
+                <fa-icon [icon]="fileW"
+                 *ngIf="attach.file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'">
+                </fa-icon>
+                <fa-icon [icon]="filePdf" *ngIf="attach.file.type ==='application/pdf'"></fa-icon>
+               </div>
+            </div>
+        
+            <div class="box-2">
+                <div class="name">Name: </div>
+                <div>{{attach.file.name}}</div>
+                <div class="name">Size:</div>
+                <div>{{attach.file.size | transformKB}}</div>
+            </div>   
+        
+            <div class="box-3">
+                <fa-icon [icon]="x" (click)="remove(attach)"></fa-icon>
+            </div>
+        </div>    
+        <fa-icon class="exclam" [icon]="exclam" *ngIf="checkSizeFile(attach)" (click)="clickon()"></fa-icon>
+       
+    </div>
+
+    

@@ -1,0 +1,29 @@
+<div class="main-conteiner">
+    <div class="conteiner">
+        <div class="text">Sign In</div> 
+        <form class="box" [formGroup]="loginForm" novalidate (ngSubmit)="submit()">
+            <div class="box-1">
+                <input type="text" class="input" 
+                placeholder="email" onfocus="this.placeholder=''" onblur="this.placeholder='email'"
+                formControlName="email" [ngClass]="{invalid: (email?.dirty || email?.touched) && email?.errors}"/>
+                <fa-icon [icon]="exclam"
+                 *ngIf="(email?.dirty || email?.touched) && email?.errors"
+                 (click)="clickon()">
+                </fa-icon> 
+            </div> 
+            <div class="box-1">
+                <input #pas type="password" class="input"
+                placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'"
+                formControlName="pass" [ngClass]="{invalid: (pass?.dirty || pass?.touched) && pass?.errors }"/>
+                <fa-icon [icon]="exclam"
+                 *ngIf="(pass?.dirty || pass?.touched) && pass?.errors"
+                 (click)="clickon()">
+                </fa-icon>
+            </div>      
+
+            <button  [disabled]="loginForm.invalid" class="blue-button" >Enter</button>          
+        </form>    
+    </div>
+    <ng-content></ng-content>
+</div>
+
