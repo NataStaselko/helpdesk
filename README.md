@@ -6,11 +6,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 download the file:
 
-https://github.com/NataStaselko/HelpDesk-v1/releases
+https://disk.yandex.ru/d/EcKCnWPxL8y69g
 
 or
 
-https://github.com/NataStaselko/HelpDesk-v2/releases
+https://disk.yandex.ru/d/EcKCnWPxL8y69g
 
 and run the following command from your terminal:
 ```sh
